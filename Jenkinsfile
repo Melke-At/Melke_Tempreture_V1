@@ -7,5 +7,11 @@ pipeline {
       }
     }
 
+    stage('') {
+      steps {
+        build(job: 'mvn clean install', quietPeriod: 1)
+      }
+    }
+
   }
 }
