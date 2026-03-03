@@ -18,7 +18,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                git 'https://github.com/Melke-At/Melke_Tempreture_V1.git'
+                        'https://github.com/Melke-At/Melke_Tempreture_V1.git'
             }
         }
 
