@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
 
@@ -19,7 +18,6 @@ pipeline {
             steps {
                 git branch: 'main',
                         url: 'https://github.com/Melke-At/Melke_Tempreture_V1.git'
-
             }
         }
 
@@ -47,6 +45,13 @@ pipeline {
             }
         }
 
+        // ✅ IMPORTANT FIX: This creates the JAR file
+        stage('Package') {
+            steps {
+                bat 'mvn clean package -DskipTests'
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 script {
@@ -64,6 +69,5 @@ pipeline {
                 }
             }
         }
-
     }
 }
